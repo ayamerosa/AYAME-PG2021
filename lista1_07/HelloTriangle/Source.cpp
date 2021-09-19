@@ -10,6 +10,7 @@
 #include <iostream>
 #include <string>
 #include <assert.h>
+#include <cmath>
 
 using namespace std;
 
@@ -29,6 +30,8 @@ int setupGeometry();
 
 // Dimensões da janela (pode ser alterado em tempo de execução)
 const GLuint WIDTH = 800, HEIGHT = 600;
+
+const float pi = 3.14159;
 
 // Código fonte do Vertex Shader (em GLSL): ainda hardcoded
 const GLchar* vertexShaderSource = "#version 450\n"
@@ -51,6 +54,7 @@ const GLchar* fragmentShaderSource = "#version 450\n"
 "color = finalColor;\n"
 "}\n\0";
 
+int nvertices = 15 + 1 + 1; //+centro +copia
 // Função MAIN
 int main()
 {
@@ -124,9 +128,9 @@ int main()
 		//glUniform4f(colorLoc, 1.0f, 0.0f, 0.0f, 1.0f);
 
 		glBindVertexArray(VAO);
-		glDrawArrays(GL_POINTS, 0, 6);
-		glDrawArrays(GL_TRIANGLES, 0, 6);
-		glDrawArrays(GL_LINE_LOOP, 0, 6);
+		glDrawArrays(GL_POINTS, 0, nvertices);
+		glDrawArrays(GL_TRIANGLE_FAN, 0, nvertices);
+		//glDrawArrays(GL_LINE_LOOP, 0, 6);
 		glBindVertexArray(0);
 
 		// Troca os buffers da tela
@@ -204,27 +208,41 @@ int setupShader()
 int setupGeometry()
 {
 
-	GLfloat vertices[] = {
-		//-0.5f, -0.5f, 0.0f,		//0.0f, 1.0f, 0.0f, //verde
-		// 0.5f, -0.5f, 0.0f,		//0.0f, 0.0f, 1.0f, //azul
-		// 0.0f, 0.5f, 0.0f,		//1.0f, 0.0f, 0.0f //vermelho
+	//GLfloat vertices[] = {
+	//	-0.5f, -0.5f, 0.0f,		0.0f, 1.0f, 0.0f, //verde
+	//	 0.5f, -0.5f, 0.0f,		0.0f, 0.0f, 1.0f, //azul
+	//	 0.0f, 0.5f, 0.0f,		1.0f, 0.0f, 0.0f //vermelho
 
-		-0.5f, -1.0f, +0.0f,    
-		-1.0f, +0.0f, +0.0f,    
-		+0.0f, +0.0f, +0.0f,
+	//};
 
-		1.0f, +0.0f, +0.0f,    
-		0.5f, +1.0f, +0.0f,    
-		+0.0f, +0.0f, +0.0f
-		 
-		//outro triangulo vai aqui
-	};
+	GLfloat* vertices;
+	vertices = new GLfloat[nvertices * 3];
+
+	vertices[0] = 0.0; //x
+	vertices[1] = 0.0; //y
+	vertices[2] = 0.0; //z
+
+	float angulo = 0.0;
+	float deltangulo = 2 * pi/(nvertices-2);
+	int i = 3;
+	float raio = 0.5;
+
+	while (i < nvertices * 3)
+	{
+		vertices[i] = raio * cos(angulo); //x
+		vertices[i+1] = raio * sin(angulo); //y
+		vertices[i + 2] = 0.0;
+
+		i += 3;
+		angulo += deltangulo;
+	}
+
 
 	GLuint VBO, VAO;
 
 	glGenBuffers(1, &VBO);//Geração do identificador do VBO
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);//Faz a conexão (vincula) do buffer como um buffer de array
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);//Envia os dados do array de floats para o buffer da OpenGl
+	glBufferData(GL_ARRAY_BUFFER, (nvertices * 3) * sizeof(GLfloat), vertices, GL_STATIC_DRAW);//Envia os dados do array de floats para o buffer da OpenGl
 
 	glGenVertexArrays(1, &VAO);//Geração do identificador do VAO (Vertex Array Object)
 	// Vincula (bind) o VAO primeiro, e em seguida  conecta e seta o(s) buffer(s) de vértices
