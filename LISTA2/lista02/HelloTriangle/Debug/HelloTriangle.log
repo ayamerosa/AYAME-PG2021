@@ -1,0 +1,3 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: O diretório intermediário (Debug\) contém arquivos compartilhados de outro projeto (ex01.vcxproj, HelloTriangle.vcxproj). Isso pode levar a um comportamento incorreto de limpeza e recompilação.
+  Source.cpp
+  HelloTriangle.vcxproj -> D:\00_ENG_BIO\ENGENHARIA BIOMÉDICA\Processamento_Gráfico\Exercicios\LISTA2\lista02\Debug\ex04.exe

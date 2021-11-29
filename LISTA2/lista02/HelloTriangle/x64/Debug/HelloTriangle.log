@@ -1,0 +1,2 @@
+﻿  glad.c
+C:\Users\fello\Documents\Unisinos 2021-2\Code\PG2021-2\HelloTriangle\HelloTriangle\glad.c(24,10): fatal error C1083: Não é possível abrir arquivo incluir: 'glad/glad.h': No such file or directory
