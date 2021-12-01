@@ -1,0 +1,22 @@
+﻿  glad.c
+  Origem.cpp
+  SceneManager.cpp
+D:\00_ENG_BIO\ENGENHARIA BIOMÉDICA\Processamento_Gráfico\Trabalho-GB-PG-2021-main\TrabalhoGB\TrabalhoGB\SceneManager.cpp(38,21): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
+D:\00_ENG_BIO\ENGENHARIA BIOMÉDICA\Processamento_Gráfico\Trabalho-GB-PG-2021-main\TrabalhoGB\TrabalhoGB\SceneManager.cpp(39,20): warning C4244: '=': conversão de 'double' para 'float', possível perda de dados
+  Sprite.cpp
+  stb_image.cpp
+  Gerando Código...
+SceneManager.obj : error LNK2019: símbolo externo não resolvido, glfwInit, referenciado na função "public: void __cdecl SceneManager::initializeGraphics(void)" (?initializeGraphics@SceneManager@@QEAAXXZ)
+SceneManager.obj : error LNK2019: símbolo externo não resolvido, glfwTerminate, referenciado na função "public: void __cdecl SceneManager::finish(void)" (?finish@SceneManager@@QEAAXXZ)
+SceneManager.obj : error LNK2019: símbolo externo não resolvido, glfwCreateWindow, referenciado na função "public: void __cdecl SceneManager::initializeGraphics(void)" (?initializeGraphics@SceneManager@@QEAAXXZ)
+SceneManager.obj : error LNK2019: símbolo externo não resolvido, glfwWindowShouldClose, referenciado na função "public: void __cdecl SceneManager::run(void)" (?run@SceneManager@@QEAAXXZ)
+SceneManager.obj : error LNK2019: símbolo externo não resolvido, glfwSetWindowShouldClose, referenciado na função "public: static void __cdecl SceneManager::key_callback(struct GLFWwindow *,int,int,int,int)" (?key_callback@SceneManager@@SAXPEAUGLFWwindow@@HHHH@Z)
+SceneManager.obj : error LNK2019: símbolo externo não resolvido, glfwSetWindowSizeCallback, referenciado na função "public: void __cdecl SceneManager::initializeGraphics(void)" (?initializeGraphics@SceneManager@@QEAAXXZ)
+SceneManager.obj : error LNK2019: símbolo externo não resolvido, glfwPollEvents, referenciado na função "public: void __cdecl SceneManager::run(void)" (?run@SceneManager@@QEAAXXZ)
+SceneManager.obj : error LNK2019: símbolo externo não resolvido, glfwGetMouseButton, referenciado na função "public: void __cdecl SceneManager::update(void)" (?update@SceneManager@@QEAAXXZ)
+SceneManager.obj : error LNK2019: símbolo externo não resolvido, glfwGetCursorPos, referenciado na função "public: bool __cdecl SceneManager::TestPositionFilter(int)" (?TestPositionFilter@SceneManager@@QEAA_NH@Z)
+SceneManager.obj : error LNK2019: símbolo externo não resolvido, glfwSetKeyCallback, referenciado na função "public: void __cdecl SceneManager::initializeGraphics(void)" (?initializeGraphics@SceneManager@@QEAAXXZ)
+SceneManager.obj : error LNK2019: símbolo externo não resolvido, glfwMakeContextCurrent, referenciado na função "public: void __cdecl SceneManager::initializeGraphics(void)" (?initializeGraphics@SceneManager@@QEAAXXZ)
+SceneManager.obj : error LNK2019: símbolo externo não resolvido, glfwSwapBuffers, referenciado na função "public: void __cdecl SceneManager::run(void)" (?run@SceneManager@@QEAAXXZ)
+SceneManager.obj : error LNK2019: símbolo externo não resolvido, glfwGetProcAddress, referenciado na função "public: void __cdecl SceneManager::initializeGraphics(void)" (?initializeGraphics@SceneManager@@QEAAXXZ)
+D:\00_ENG_BIO\ENGENHARIA BIOMÉDICA\Processamento_Gráfico\Trabalho-GB-PG-2021-main\TrabalhoGB\x64\Debug\TrabalhoGB.exe : fatal error LNK1120: 13 externo não resolvidos
